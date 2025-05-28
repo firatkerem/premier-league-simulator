@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football League Simulator</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Football League Simulator</h1>
+        
+        <div class="controls">
+            <button onclick="simulateWeek()">Simulate Next Week</button>
+            <button onclick="simulateAll()">Simulate All Remaining</button>
+            <button onclick="resetLeague()">Reset League</button>
+        </div>
+
+        <div class="league-table">
+            <h2>League Table</h2>
+            <table id="leagueTable">
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Team</th>
+                        <th>Played</th>
+                        <th>Won</th>
+                        <th>Drawn</th>
+                        <th>Lost</th>
+                        <th>GF</th>
+                        <th>GA</th>
+                        <th>GD</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/app.js"></script>
+</body>
+</html> 

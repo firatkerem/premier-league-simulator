@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier League Simulator</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="modern-bg">
+    <header class="main-header">
+        <h1><span class="emoji">⚽️</span> Premier League Simulator <span class="emoji">🏆</span></h1>
+    </header>
+    <div class="controls modern-controls">
+        <button class="modern-btn" onclick="simulateWeek()">Simulate Next Week</button>
+        <button class="modern-btn simulate-all" onclick="simulateAll()">Simulate All Remaining</button>
+        <button class="modern-btn reset" onclick="resetLeague()">Reset League</button>
+    </div>
+    <main class="modern-container">
+        <section class="modern-card league-table-card">
+            <h2>League Table</h2>
+            <table class="modern-table" id="leagueTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Team</th>
+                        <th>P</th>
+                        <th>W</th>
+                        <th>D</th>
+                        <th>L</th>
+                        <th>GF</th>
+                        <th>GA</th>
+                        <th>GD</th>
+                        <th>Pts</th>
+                    </tr>
+                </thead>
+                <tbody id="leagueTableBody"></tbody>
+            </table>
+        </section>
+        <section class="modern-card probabilities-card">
+            <h2>Championship Probabilities</h2>
+            <div id="probabilitiesContainer"></div>
+        </section>
+        <section class="modern-card matches-card">
+            <h2>Matches</h2>
+            <div id="matchesContainer"></div>
+        </section>
+    </main>
+    <script src="/static/app.js"></script>
+</body>
+</html> 
