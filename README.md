@@ -1,4 +1,4 @@
-# INSIDER Football League Simulation
+# Premier League Simulator
 
 Bu proje, 4 takım arasında futbol ligi simülasyonu yapan bir web uygulamasıdır. Go programlama dili kullanılarak geliştirilmiş olup, modern web teknolojileri ve veritabanı yönetimi içerir.
 
