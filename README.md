@@ -1,86 +1,46 @@
 # Premier League Simulator
 
-Bu proje, 4 takım arasında futbol ligi simülasyonu yapan bir web uygulamasıdır. Go programlama dili kullanılarak geliştirilmiş olup, modern web teknolojileri ve veritabanı yönetimi içerir.
+This project is a small **Go** application that lets you build and play through a football league from start to finish. One command launches the server, creates a fair fixture list, simulates each match, and stores the results in SQLite. The browser UI then updates in real time—showing the table, week-by-week scores, and each team’s title chances.
 
-## Özellikler
+![Premier League Simulator screenshot](/screenshot.png)
 
-- 4 farklı takım ve her takımın kendine özgü güç değeri
-- Haftalık veya toplu maç simülasyonu
-- Canlı puan durumu takibi
-- Premier Lig tarzı puanlama sistemi (3-1-0)
-- Modern ve kullanıcı dostu arayüz
-- RESTful API desteği
+> *Screenshot: After 3 match-weeks, Liverpool have a 87.5% chance of winning the title,
+>  with Arsenal trailing behind them.*
 
-## Teknik Detaylar
+---
 
-- Backend: Go (Gin Framework)
-- Frontend: HTML, CSS, JavaScript
-- Veritabanı: SQLite
-- API: RESTful endpoints
+## Key Features
+| Category | What you get |
+| -------- | ------------ |
+| **Interactive UI** | Responsive interface with three actions: **Simulate Next Week**, **Simulate All Remaining**, **Reset League**. |
+| **Live League Table** | Automatic calculation of **P · W · D · L · GF · GA · Pts** for every club after each simulation. |
+| **Persisted State**  | Results, table and probabilities are stored in **SQLite** so you can stop and resume. |
 
-## Kurulum
+---
 
-1. Go'yu yükleyin (1.21 veya üstü)
+## Tech Stack
 
-2. Projeyi klonlayın:
+| Layer         | Technology                        | Why?                               |
+| ------------- | --------------------------------- | ---------------------------------- |
+| **Backend**   | Go (Gin Framework) [https://go.dev] | Fast, simple, cloud-native. |
+| **Database**  | SQLite  [https://www.sqlite.org] | Portable, serverless storage. |
+| **Frontend**  | HTML, CSS, JavaScript (Bootstrap)    | Tiny bundle, instant load time. |
+| **Tooling**   | `go mod`, `make`, Git   | Reproducible builds & CI. |
+
+---
+
+## Quick Start
+
 ```bash
-git clone <repository-url>
-cd INSIDER
-```
+# 1. Clone
+git clone https://github.com/<your-user>/premier-league-simulator.git
+cd premier-league-simulator
 
-3. Bağımlılıkları yükleyin:
-```bash
-go mod tidy
-```
+# 2. Install dependencies
+go mod download
 
-4. Uygulamayı çalıştırın:
-```bash
-go run main.go
-```
+# 3. Run the server
+go run cmd/server/main.go  # defaults to :8080
 
-5. Tarayıcınızda açın:
-- http://localhost:8080
-
-## Kullanım
-
-1. Ana sayfada puan durumu tablosunu göreceksiniz
-2. "Simulate Next Week" butonu ile bir sonraki haftanın maçlarını simüle edebilirsiniz
-3. "Simulate All Remaining" butonu ile kalan tüm maçları simüle edebilirsiniz
-4. "Reset League" butonu ile ligi sıfırlayabilirsiniz
-
-## API Endpoints
-
-- `GET /api/league/table` — Güncel puan durumu
-- `POST /api/league/simulate/week` — Bir sonraki haftayı simüle et
-- `POST /api/league/simulate/all` — Kalan tüm maçları simüle et
-- `POST /api/league/reset` — Ligi sıfırla
-
-## Proje Yapısı
-
-```
-.
-├── main.go           # Ana uygulama dosyası
-├── models/           # Veri modelleri
-│   ├── team.go      # Takım modeli
-│   └── match.go     # Maç modeli
-├── simulation/       # Simülasyon mantığı
-│   └── simulator.go
-└── static/          # Frontend dosyaları
-    ├── index.html
-    ├── styles.css
-    └── app.js
-```
-
-## Geliştirme
-
-Proje, modüler bir yapıda tasarlanmıştır:
-- `models/`: Veri modelleri ve veritabanı şeması
-- `simulation/`: Maç simülasyonu mantığı
-- `static/`: Frontend dosyaları
-
-## Notlar
-
-- Uygulama SQLite veritabanı kullanmaktadır
-- Tüm API endpoint'leri JSON formatında yanıt verir
-- Frontend tarafında modern CSS ve JavaScript kullanılmıştır
-- Responsive tasarım ile mobil uyumludur 
+# 4. Open Web Interface
+Open http://localhost:8080 in your browser and start simulating.
